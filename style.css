@@ -479,7 +479,7 @@ a:hover {
 }
 
 /* Desktop Layout */
-@media (min-width: 1024px) {
+@media (min-width: 2048px) {
   .hero-content {
     grid-template-columns: 280px 1fr;
     gap: var(--space-32);
