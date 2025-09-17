@@ -1456,3 +1456,87 @@ select.form-control {
     padding-left: 40px;
   }
 }
+/* Logo Styles */
+.nav-logo {
+    height: 40px;
+    width: auto;
+    margin-right: 12px;
+    transition: all 0.3s ease;
+}
+
+.nav-logo:hover {
+    opacity: 0.8;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+}
+
+/* Hero Layout with Image */
+.hero-content {
+    display: grid;
+    gap: 48px;
+    align-items: center;
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 300px 1fr;
+        text-align: left;
+    }
+}
+
+.hero-image {
+    order: 2;
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 1024px) {
+    .hero-image {
+        order: 1;
+        justify-content: flex-start;
+    }
+}
+
+/* Headshot Styles */
+.hero-headshot {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #1e3a8a;
+    box-shadow: 0 8px 32px rgba(30, 58, 138, 0.2);
+    transition: all 0.3s ease;
+}
+
+.hero-headshot:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(30, 58, 138, 0.3);
+}
+
+@media (min-width: 768px) {
+    .hero-headshot {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+.hero-text {
+    order: 1;
+}
+
+@media (min-width: 1024px) {
+    .hero-text {
+        order: 2;
+    }
+}
+
+/* Hide name on mobile if needed */
+@media (max-width: 640px) {
+    .nav-name {
+        font-size: 14px; /* Make smaller on mobile */
+    }
+}
