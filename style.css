@@ -554,7 +554,7 @@ a:hover {
 
 @media (min-width: 1024px) {
   .hero-title {
-    font-size: clamp(var(--font-size-3xl), 5vw, 42px);
+    font-size: clamp(var(--font-size-2xl), 5vw, 42px);
   }
 }
 
