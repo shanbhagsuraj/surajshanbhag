@@ -346,10 +346,17 @@ function smoothScrollPolyfill() {
 }
 //Recaptcha success
 function onRecaptchaSuccess() {
+  console.log('reCAPTCHA verified');
   document.getElementById('recaptcha-container').style.display = 'none';
   const formContainer = document.getElementById('form-container');
-  formContainer.classList.add('visible');
+  formContainer.style.opacity = 0;
+  formContainer.style.display = 'block';
+  setTimeout(() => {
+    formContainer.style.transition = 'opacity 0.5s ease';
+    formContainer.style.opacity = 1;
+  }, 10);
 }
+
 
 // Initialize smooth scroll polyfill
 smoothScrollPolyfill();
