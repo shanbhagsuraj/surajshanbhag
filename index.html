@@ -9,25 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Formbricks Script -->
-    <script type="text/javascript">
-        !function () {
-            var t = document.createElement("script");
-            t.type = "text/javascript";
-            t.async = true;
-            t.src = "https://app.formbricks.com/js/formbricks.umd.js";
-            t.onload = function () {
-                if (window.formbricks) {
-                    window.formbricks.setup({ environmentId: "cmfoteviliivn1crplbwm6miw", appUrl: "https://app.formbricks.com" });
-                } else {
-                    console.error("Formbricks initialization failed.");
-                }
-            };
-            var e = document.getElementsByTagName("script")[0];
-            e.parentNode.insertBefore(t, e);
-        }();
-    </script>
-    <!-- Google reCAPTCHA -->
+        <!-- Google reCAPTCHA -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
@@ -307,11 +289,13 @@
                     <div class="g-recaptcha" data-sitekey="6LdqKs0rAAAAANt8adjEqPvWtS8Ceewm5TpEhVg3" data-callback="onRecaptchaSuccess"></div>
                 </div>
                 
-                <div id="form-container" style="display:none; max-width:600px; margin: 32px auto 0; height:650px; position:relative;">
+               <div id="form-container" style="display:none; max-width:600px; margin: 32px auto 0; height:650px; position:relative;">
                     <iframe
                         src="https://app.formbricks.com/s/cmfotg9hc4gtoxs01bayu9vhr?embed=true"
                         frameborder="0"
-                        style="width:100%; height: 100%; border: none; position: absolute; top: 0; left: 0;">
+                        style="width:100%; height: 100%; border: none; position: absolute; top: 0; left: 0;"
+                        onload="console.log('✅ Form iframe loaded')"
+                        onerror="console.error('❌ Form iframe failed to load')">
                     </iframe>
                 </div>
             </div>
@@ -340,17 +324,31 @@
     </footer>
 
     <script>
-        // Global reCAPTCHA callback function
-        window.onRecaptchaSuccess = function() {
-            console.log('reCAPTCHA verified');
-            document.getElementById('recaptcha-container').style.display = 'none';
+       <!-- Global reCAPTCHA callback -->
+    <script>
+        window.onCaptchaSuccess = function() {
+            console.log('✅ reCAPTCHA verified');
+            
+            const recaptchaContainer = document.getElementById('recaptcha-container');
             const formContainer = document.getElementById('form-container');
-            formContainer.style.display = 'block';
-            formContainer.style.opacity = 0;
-            setTimeout(() => {
-                formContainer.style.transition = 'opacity 0.5s ease-in';
-                formContainer.style.opacity = 1;
-            }, 10);
+            
+            console.log('📦 Recaptcha container found:', !!recaptchaContainer);
+            console.log('📋 Form container found:', !!formContainer);
+            
+            if (recaptchaContainer) {
+                recaptchaContainer.style.display = 'none';
+                console.log('✅ Recaptcha container hidden');
+            }
+            
+            if (formContainer) {
+                formContainer.style.display = 'block';
+                formContainer.style.opacity = '0';
+                setTimeout(() => {
+                    formContainer.style.transition = 'opacity 0.5s ease-in';
+                    formContainer.style.opacity = '1';
+                    console.log('✅ Form container shown and faded in');
+                }, 50);
+            }
         };
     </script>
     <script src="app.js"></script>
