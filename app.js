@@ -142,12 +142,7 @@ function handleFormSubmit(e) {
         // sendFormData(formObject);
     }
 }
-function onRecaptchaSuccess() {
-  console.log('reCAPTCHA verified');
-  document.getElementById('recaptcha-container').style.display = 'none';
-  const formContainer = document.getElementById('form-container');
-  formContainer.classList.add('visible');
-}
+
 // Validate entire form
 function validateForm(form) {
     const requiredFields = form.querySelectorAll('[required]');
