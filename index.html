@@ -9,12 +9,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- START Formbricks Surveys -->
-<script type="text/javascript">
-!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://app.formbricks.com/js/formbricks.umd.cjs",t.onload=function(){window.formbricks?window.formbricks.setup({environmentId:"cmfote1ev4gfdxs013cl7tvlu",appUrl:"https://app.formbricks.com"}):console.error("Formbricks library failed to load properly. The formbricks object is not available.");};var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}();
-</script>
+    <!-- Formbricks Script -->
+  <script type="text/javascript">
+    !function () {
+      var t = document.createElement("script");
+      t.type = "text/javascript";
+      t.async = true;
+      t.src = "https://app.formbricks.com/js/formbricks.umd.js";
+      t.onload = function () {
+        if (window.formbricks) {
+          window.formbricks.setup({ environmentId: "cmfoteviliivn1crplbwm6miw", appUrl: "https://app.formbricks.com" });
+        } else {
+          console.error("Formbricks initialization failed.");
+        }
+      };
+      var e = document.getElementsByTagName("script")[0];
+      e.parentNode.insertBefore(t, e);
+    }();
+  </script>
 <!-- END Formbricks Surveys -->
-        <script src="https://www.google.com/recaptcha/enterprise.js?render=6LdqKs0rAAAAANt8adjEqPvWtS8Ceewm5TpEhVg3"></script>
+       <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <!-- Your code -->
 </head>
 <body>
@@ -316,13 +330,13 @@
     formContainer.style.display = 'block';
     formContainer.style.opacity = 0;
     // Fade in smoothly
-    setTimeout(() => {
-      formContainer.style.transition = 'opacity 0.5s ease';
+    setTimeout(function () {
+      formContainer.style.transition = 'opacity 0.5s ease-in';
       formContainer.style.opacity = 1;
-    }, 10);
+    }, 50);
   }
 </script>
-
+ <script src="app.js"></script>
          
     </section>
 
