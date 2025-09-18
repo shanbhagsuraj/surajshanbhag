@@ -291,13 +291,26 @@
                     </div>
                 </div>
                 
-              <div style="position: relative; height:80dvh; overflow:auto;"> 
-  <iframe 
-    src="https://app.formbricks.com/s/cmfotg9hc4gtoxs01bayu9vhr?embed=true" 
-    frameborder="0" style="position: absolute; left:0; top:0; width:100%; height:100%; border:0;">
-  </iframe>
-                      <div class="g-recaptcha" data-sitekey=6Le4Js0rAAAAAJNp9ntA7UgnM0GzndqWgK94OTbt></div>
+              <div id="recaptcha-container" style="max-width:600px; margin: auto; text-align: center; padding: 20px;">
+  <p>Please verify that you are not a robot to access the contact form:</p>
+  <div class="g-recaptcha" data-sitekey="6Le4Js0rAAAAAJNp9ntA7UgnM0GzndqWgK94OTbt" data-callback="onRecaptchaSuccess"></div>
 </div>
+
+<div id="form-container" style="display: none; position: relative; height: 80vh; max-width:600px; margin:auto; overflow:auto;">
+  <iframe
+    src="https://app.formbricks.com/s/cmfotg9hc4gtoxs01bayu9vhr?embed=true"
+    frameborder="0"
+    style="position: absolute; left:0; top:0; width:100%; height:100%; border:0;">
+  </iframe>
+</div>
+
+<script>
+  function onRecaptchaSuccess() {
+    document.getElementById('recaptcha-container').style.display = 'none';
+    document.getElementById('form-container').style.display = 'block';
+  }
+</script>
+
 </div>
 
                
