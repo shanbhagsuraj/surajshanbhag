@@ -312,17 +312,7 @@
       <div class="g-recaptcha" data-sitekey="6LdqKs0rAAAAANt8adjEqPvWtS8Ceewm5TpEhVg3" data-callback="onRecaptchaSuccess"></div>
     </div>
 
-    <div id="form-container" style="display:none; position:relative; height:650px; max-width:600px; margin:auto;">
-      <iframe 
-        src="https://app.formbricks.com/s/cmfotg9hc4gtoxs01bayu9vhr?embed=true" 
-        frameborder="0" 
-        style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;">
-      </iframe>
-    </div>
-  </div>
-</section>
-
-<script>
+  <script>
   function onRecaptchaSuccess() {
     console.log('reCAPTCHA verified');
     document.getElementById('recaptcha-container').style.display = 'none';
@@ -337,6 +327,20 @@
   }
 </script>
  <script src="app.js"></script>
+      <div style="max-width:600px; margin: 32px auto 0;">
+        <iframe
+          src="https://app.formbricks.com/s/cmfotg9hc4gtoxs01bayu9vhr?embed=true"
+          frameborder="0"
+          width="100%"
+          height="650"
+          style="border: none;">
+        </iframe>
+      </div>
+    </div>
+ 
+</section>
+
+
          
     </section>
 
