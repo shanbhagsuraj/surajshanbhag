@@ -14,7 +14,8 @@
 !function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://app.formbricks.com/js/formbricks.umd.cjs",t.onload=function(){window.formbricks?window.formbricks.setup({environmentId:"cmfote1ev4gfdxs013cl7tvlu",appUrl:"https://app.formbricks.com"}):console.error("Formbricks library failed to load properly. The formbricks object is not available.");};var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}();
 </script>
 <!-- END Formbricks Surveys -->
-        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <script src="https://www.google.com/recaptcha/enterprise.js?render=6Le4Js0rAAAAAJNp9ntA7UgnM0GzndqWgK94OTbt"></script>
+  <!-- Your code -->
 </head>
 <body>
     <!-- Navigation -->
@@ -291,9 +292,11 @@
                     </div>
                 </div>
                 
-              <div id="recaptcha-container" style="max-width:600px; margin: auto; text-align: center; padding: 20px;">
+             <!-- Load reCAPTCHA v2 -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+ <div id="recaptcha-container" style="max-width:600px; margin: auto; text-align: center; padding: 20px;">
   <p>Please verify that you are not a robot to access the contact form:</p>
-  <div class="g-recaptcha" data-sitekey="6Le4Js0rAAAAAJiP9S6zfpovOwBaurlgWTF8jz9w" data-callback="onRecaptchaSuccess"></div>
+                   <div class="g-recaptcha" data-sitekey="6Le4Js0rAAAAAJNp9ntA7UgnM0GzndqWgK94OTbt" data-callback="onRecaptchaSuccess"></div>
 </div>
 
 <div id="form-container" style="display: none; position: relative; height: 80vh; max-width:600px; margin:auto; overflow:auto;">
