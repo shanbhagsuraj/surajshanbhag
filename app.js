@@ -7,6 +7,17 @@ document.addEventListener('DOMContentLoaded', function() {
     initContactForm();
     initScrollEffects();
 });
+window.onCaptchaSuccess = function() {
+  console.log('reCAPTCHA verified');
+  document.getElementById('recaptcha-container').style.display = 'none';
+  const formContainer = document.getElementById('form-container');
+  formContainer.style.display = 'block';
+  formContainer.style.opacity = '0';
+  setTimeout(() => {
+    formContainer.style.transition = 'opacity 0.5s ease';
+    formContainer.style.opacity = '1';
+  }, 10);
+};
 
 // Navigation functionality
 function initNavigation() {
