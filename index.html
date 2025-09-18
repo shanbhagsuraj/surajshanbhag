@@ -321,7 +321,17 @@
 </div>
 
 <script>
-  function onRecaptchaSuccess() {
+   window.onRecaptchaSuccess = function() {console.log('reCAPTCHA verified');
+    document.getElementById('recaptcha-container').style.display = 'none';
+    const formContainer = document.getElementById('form-container');
+    formContainer.style.display = 'block';
+    formContainer.style.opacity = 0;
+    setTimeout(() => {
+      formContainer.style.transition = 'opacity 0.5s ease-in';
+      formContainer.style.opacity = 1;
+    }, 10);
+                                          };
+    function onRecaptchaSuccess() {
     console.log('reCAPTCHA verified');
     document.getElementById('recaptcha-container').style.display = 'none';
     const container = document.getElementById('form-container');
@@ -330,7 +340,7 @@
     setTimeout(() => {
       container.style.transition = 'opacity 0.5s ease';
       container.style.opacity = 1;
-    }, 50);
+    }, 10);
   }
 </script>
  
@@ -361,18 +371,5 @@
     </footer>
 
     <script src="app.js"></script>
-    <script>
-  window.onRecaptchaSuccess = function() {
-    console.log('reCAPTCHA verified');
-    document.getElementById('recaptcha-container').style.display = 'none';
-    const formContainer = document.getElementById('form-container');
-    formContainer.style.display = 'block';
-    formContainer.style.opacity = 0;
-    setTimeout(() => {
-      formContainer.style.transition = 'opacity 0.5s ease-in';
-      formContainer.style.opacity = 1;
-    }, 10);
-  };
-</script>
-</body>
+  </body>
 </html>
