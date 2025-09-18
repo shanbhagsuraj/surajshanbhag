@@ -19,7 +19,6 @@
   <!-- Global reCAPTCHA callback -->
   <script>
     window.onRecaptchaSuccess = function () {
-      console.log("✅ reCAPTCHA verified");
       document.getElementById("recaptcha-container").style.display = "none";
       document.getElementById("contactForm").style.display = "block";
     };
@@ -172,7 +171,70 @@
         </p>
       </div>
       <div class="services-grid">
-        <!-- Service cards as before -->
+        <div class="service-card">
+          <div class="service-icon">🏦</div>
+          <h3 class="service-title">Investment Banking Advisory</h3>
+          <p class="service-description">
+            M&A advisory, capital raising, and strategic transactions for growth
+            companies across Industrials, Packaging, and Chemicals sectors
+          </p>
+          <div class="service-details">
+            <p><strong>Key Expertise:</strong></p>
+            <ul>
+              <li>Buy-side and sell-side M&A advisory</li>
+              <li>Capital markets transactions</li>
+              <li>Valuation and strategic analysis</li>
+              <li>Fund raising and strategic positioning</li>
+            </ul>
+            <p class="service-proof">
+              Led $13.1B+ in transactions for marquee clients including CD&R,
+              KPS, AB InBev
+            </p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💰</div>
+          <h3 class="service-title">Personal Finance Advisory</h3>
+          <p class="service-description">
+            Having secured the coveted Financial Independence, and helping
+            friends and family with their investment journey, looking to
+            provide genuine, non-conflicted advice on personal finance
+          </p>
+          <div class="service-details">
+            <p><strong>Advisory focus:</strong></p>
+            <ul>
+              <li>Portfolio management</li>
+              <li>Diversification</li>
+              <li>Risk adjusted returns</li>
+              <li>Personalized details</li>
+            </ul>
+            <p class="service-proof">
+              Leveraging a personal track record of starting from zero to
+              transitioning to a $millionaire through smart investing
+            </p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📊</div>
+          <h3 class="service-title">Strategic Consulting</h3>
+          <p class="service-description">
+            Corporate strategy, business development, and financial advisory for
+            established businesses as well as start-ups
+          </p>
+          <div class="service-details">
+            <p><strong>Consulting Areas:</strong></p>
+            <ul>
+              <li>Strategic planning and execution</li>
+              <li>Business development initiatives</li>
+              <li>Market entry strategies</li>
+              <li>Operational efficiency optimization</li>
+            </ul>
+            <p class="service-proof">
+              Deep industry knowledge across global markets in North America,
+              Europe, and APAC
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -182,10 +244,80 @@
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Track Record & Major Deals</h2>
-        <p class="section-subtitle">Proven results with industry-leading clients and transactions</p>
+        <p class="section-subtitle">
+          Proven results with industry-leading clients and transactions
+        </p>
       </div>
-      <div class="experience-content">
-        <!-- Experience cards as before -->
+      <div class="experience-content">  
+        <div class="major-deals">
+          <h3>Select Major Transactions</h3>
+          <div class="deals-grid">
+            <div class="deal-card">
+              <div class="deal-value">$2.2B</div>
+              <p class="deal-description">
+                CD&R acquisition and combination of Multi-Color Corp
+              </p>
+            </div>
+            <div class="deal-card">
+              <div class="deal-value">€1.9B</div>
+              <p class="deal-description">
+                KPS acquisition of Crown's European business
+              </p>
+            </div>
+            <div class="deal-card">
+              <div class="deal-value">$3.2B</div>
+              <p class="deal-description">K+S sale of Morton Salt</p>
+            </div>
+            <div class="deal-card">
+              <div class="deal-value">$3.0B</div>
+              <p class="deal-description">ABInBev stake sale to Apollo</p>
+            </div>
+            <div class="deal-card">
+              <div class="deal-value">$2.5B</div>
+              <p class="deal-description">
+                Platinum Equity LBO of Multi-Color Corp
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="career-timeline">
+          <h3>Professional Journey</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">2024 - Present</div>
+              <div class="timeline-content">
+                <h4>Co-Founder and Director</h4>
+                <p class="company">Stratus Selyn Enterprises Pvt Ltd</p>
+                <p class="location">Bengaluru, India</p>
+                <p>Building an umbrella brand </p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">10+ Years</div>
+              <div class="timeline-content">
+                <h4>Vice President</h4>
+                <p class="company">Deutsche Bank</p>
+                <p class="location">London, Chicago, Mumbai</p>
+                <p>
+                  Led $13.1B+ in M&A transactions across Industrials, Packaging,
+                  and Chemicals sectors
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">1+ Year</div>
+              <div class="timeline-content">
+                <h4>Investment Banking Analyst</h4>
+                <p class="company">Nomura</p>
+                <p class="location">Mumbai</p>
+                <p>
+                  Industry analysis and valuation expertise across infrastructure,
+                  renewable energy, and automotive
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -206,30 +338,67 @@
             financial decisions.
           </p>
           <div class="contact-methods">
-            <!-- Contact methods as before -->
+            <div class="contact-method">
+              <span class="contact-icon">📧</span>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:stratusselyn.advisory@gmail.com"
+                  >stratusselyn.advisory@gmail.com</a
+                >
+              </div>
+            </div>
+            <div class="contact-method">
+              <span class="contact-icon">💼</span>
+              <div>
+                <strong>LinkedIn</strong>
+                <a
+                  href="https://www.linkedin.com/in/surajshanbhag"
+                  target="_blank"
+                  >linkedin.com/in/surajshanbhag</a
+                >
+              </div>
+            </div>
+            <div class="contact-method">
+              <span class="contact-icon">📺</span>
+              <div>
+                <strong>YouTube</strong>
+                <a
+                  href="https://www.youtube.com/channel/UCZOQppMPAc-n_jiLHi7xBJw"
+                  target="_blank"
+                  >Financial Insights & Analysis</a
+                >
+              </div>
+            </div>
           </div>
         </div>
 
-        <div id="recaptcha-container" style="max-width:600px; margin:auto; text-align:center; padding:20px;">
+        <div
+          id="recaptcha-container"
+          style="max-width:600px; margin:auto; text-align:center; padding:20px;"
+        >
           <p>Please verify that you are not a robot to access the contact form.</p>
-          <div class="g-recaptcha"
-               data-sitekey="6LdqKs0rAAAAANt8adjEqPvWtS8Ceewm5TpEhVg3"
-               data-callback="onRecaptchaSuccess">
-          </div>
+          <div
+            class="g-recaptcha"
+            data-sitekey="6LdqKs0rAAAAANt8adjEqPvWtS8Ceewm5TpEhVg3"
+            data-callback="onRecaptchaSuccess"
+          ></div>
         </div>
 
-        <form id="contactForm" style="display:none; max-width:600px; margin:32px auto;">
+        <form
+          id="contactForm"
+          style="display:none; max-width:600px; margin:32px auto;"
+        >
           <div class="form-group">
             <label for="user_name">Full Name*</label>
-            <input type="text" id="user_name" name="user_name" class="form-control" required>
+            <input type="text" id="user_name" name="user_name" class="form-control" required/>
           </div>
           <div class="form-group">
             <label for="user_email">Email Address*</label>
-            <input type="email" id="user_email" name="user_email" class="form-control" required>
+            <input type="email" id="user_email" name="user_email" class="form-control" required/>
           </div>
           <div class="form-group">
             <label for="company">Company</label>
-            <input type="text" id="company" name="company" class="form-control">
+            <input type="text" id="company" name="company" class="form-control"/>
           </div>
           <div class="form-group">
             <label for="message">Message*</label>
@@ -244,24 +413,33 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <!-- Footer content as before -->
+      <div class="footer-content">
+        <div class="footer-info">
+          <h4>Suraj Shanbhag</h4>
+          <p>Corporate Finance Advisor | Personal Finance Advisor | Strategic Consultant</p>
+          <p>Bengaluru, Karnataka, India</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://www.linkedin.com/in/surajshanbhag" target="_blank">LinkedIn</a>
+          <a href="https://www.youtube.com/channel/UCZOQppMPAc-n_jiLHi7xBJw" target="_blank">YouTube</a>
+          <a href="mailto:stratusselyn.advisory@gmail.com">Email</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Suraj Shanbhag. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 
-  <!-- EmailJS initialization and form handler -->
+  <!-- EmailJS init & form handler -->
   <script>
-    (function(){
+    (function () {
       emailjs.init("stratusselyn.advisory@gmail.com");
     })();
-
-    document.getElementById("contactForm").addEventListener("submit", function(e) {
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
       e.preventDefault();
       emailjs.sendForm("service_fwobait", "template_191shw6", this)
-        .then(function() {
-          alert("Email sent!");
-        }, function(error) {
-          alert("Failed to send: " + error.text);
-        });
+        .then(function () { alert("Email sent!"); }, function (error) { alert("Failed: " + error.text); });
     });
   </script>
 
