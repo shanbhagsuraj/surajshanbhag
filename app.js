@@ -1,5 +1,4 @@
 // Suraj Shanbhag Personal Website JavaScript
-
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all functionality
     initNavigation();
@@ -7,16 +6,18 @@ document.addEventListener('DOMContentLoaded', function() {
     initContactForm();
     initScrollEffects();
 });
+
+// Global reCAPTCHA callback function
 window.onCaptchaSuccess = function() {
-  console.log('reCAPTCHA verified');
-  document.getElementById('recaptcha-container').style.display = 'none';
-  const formContainer = document.getElementById('form-container');
-  formContainer.style.display = 'block';
-  formContainer.style.opacity = '0';
-  setTimeout(() => {
-    formContainer.style.transition = 'opacity 0.5s ease';
-    formContainer.style.opacity = '1';
-  }, 10);
+    console.log('reCAPTCHA verified');
+    document.getElementById('recaptcha-container').style.display = 'none';
+    const formContainer = document.getElementById('form-container');
+    formContainer.style.display = 'block';
+    formContainer.style.opacity = '0';
+    setTimeout(() => {
+        formContainer.style.transition = 'opacity 0.5s ease';
+        formContainer.style.opacity = '1';
+    }, 10);
 };
 
 // Navigation functionality
@@ -268,18 +269,20 @@ function showFormSuccess() {
     `;
     
     const contactForm = document.getElementById('contactForm');
-    contactForm.parentNode.insertBefore(successMessage, contactForm);
-    
-    // Remove success message after 5 seconds
-    setTimeout(() => {
-        successMessage.remove();
-    }, 5000);
-    
-    // Scroll to success message
-    successMessage.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'center' 
-    });
+    if (contactForm) {
+        contactForm.parentNode.insertBefore(successMessage, contactForm);
+        
+        // Remove success message after 5 seconds
+        setTimeout(() => {
+            successMessage.remove();
+        }, 5000);
+        
+        // Scroll to success message
+        successMessage.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+        });
+    }
 }
 
 // Initialize scroll effects
@@ -355,19 +358,6 @@ function smoothScrollPolyfill() {
         document.head.appendChild(script);
     }
 }
-//Recaptcha success
-function onRecaptchaSuccess() {
-  console.log('reCAPTCHA verified');
-  document.getElementById('recaptcha-container').style.display = 'none';
-  const formContainer = document.getElementById('form-container');
-  formContainer.style.opacity = 0;
-  formContainer.style.display = 'block';
-  setTimeout(() => {
-    formContainer.style.transition = 'opacity 0.5s ease';
-    formContainer.style.opacity = 1;
-  }, 10);
-}
-
 
 // Initialize smooth scroll polyfill
 smoothScrollPolyfill();
