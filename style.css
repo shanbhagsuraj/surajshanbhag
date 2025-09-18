@@ -281,6 +281,27 @@ a:hover {
 }
 
 /* Form elements */
+#form-container {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  display: none; /* fallback for no JS */
+}
+
+#form-container.visible {
+  display: block;
+  opacity: 1;
+}
+
+/* Validation error highlights */
+.form-control.error {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(var(--color-red-500-rgb), 0.3);
+}
+
+/* General transitions */
+.btn, .nav-toggle span {
+  transition: all 0.3s ease;
+}
 .form-control {
   display: block;
   width: 100%;
