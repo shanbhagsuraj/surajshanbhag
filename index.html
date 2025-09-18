@@ -255,68 +255,74 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Let's Connect</h2>
-                <p class="section-subtitle">Ready to discuss your next strategic move?</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Get in Touch</h3>
-                    <p>Whether you're looking for Corporate finance advisory, personal finance advisory, or strategic consulting, I'm here to help you navigate complex financial decisions.</p>
-                    
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <span class="contact-icon">📧</span>
-                            <div>
-                                <strong>Email</strong>
-                                <a href="mailto:stratusselyn.advisory@gmail.com">stratusselyn.advisory@gmail.com</a>
-                            </div>
-                        </div>
-                                               <div class="contact-method">
-                            <span class="contact-icon">💼</span>
-                            <div>
-                                <strong>LinkedIn</strong>
-                                <a href="https://www.linkedin.com/in/surajshanbhag" target="_blank">linkedin.com/in/surajshanbhag</a>
-                            </div>
-                        </div>
-                        <div class="contact-method">
-                            <span class="contact-icon">📺</span>
-                            <div>
-                                <strong>YouTube</strong>
-                                <a href="https://www.youtube.com/channel/UCZOQppMPAc-n_jiLHi7xBJw" target="_blank">Financial Insights & Analysis</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-             <!-- Load reCAPTCHA v2 -->
-<!-- Load reCAPTCHA v2 -->
+    <!-- Load reCAPTCHA v2 script once in head -->
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-<div id="recaptcha-container" style="max-width:600px; margin:auto; text-align:center; padding:20px;">
-  <p>Please verify that you are not a robot to access the contact form:</p>
-  <div class="g-recaptcha" data-sitekey="6LdqKs0rAAAAANt8adjEqPvWtS8Ceewm5TpEhVg3" data-callback="onRecaptchaSuccess"></div>
-</div>
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Let's Connect</h2>
+      <p class="section-subtitle">Ready to discuss your next strategic move?</p>
+    </div>
+    <div class="contact-content">
+      <div class="contact-info">
+        <h3>Get in Touch</h3>
+        <p>Whether you're looking for Corporate finance advisory, personal finance advisory, or strategic consulting, I'm here to help you navigate complex financial decisions.</p>
+        <div class="contact-methods">
+          <div class="contact-method">
+            <span class="contact-icon">📧</span>
+            <div>
+              <strong>Email</strong>
+              <a href="mailto:stratusselyn.advisory@gmail.com">stratusselyn.advisory@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-method">
+            <span class="contact-icon">💼</span>
+            <div>
+              <strong>LinkedIn</strong>
+              <a href="https://www.linkedin.com/in/surajshanbhag" target="_blank">linkedin.com/in/surajshanbhag</a>
+            </div>
+          </div>
+          <div class="contact-method">
+            <span class="contact-icon">📺</span>
+            <div>
+              <strong>YouTube</strong>
+              <a href="https://www.youtube.com/channel/UCZOQppMPAc-n_jiLHi7xBJw" target="_blank">Financial Insights & Analysis</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<div id="form-container" style="display:none; position:relative; height: 650px; max-width: 600px; margin: auto;">
-  <iframe 
-    src="https://app.formbricks.com/s/cmfotg9hc4gtoxs01bayu9vhr?embed=true" 
-    frameborder="0" 
-    style="position:absolute; left:0; top:0; width:100%; height:100%; border:none;">
-  </iframe>
-</div>
-                 
+      <div id="recaptcha-container" style="max-width:600px; margin:auto; text-align:center; padding:20px;">
+        <p>Please verify that you are not a robot to access the contact form:</p>
+        <div class="g-recaptcha" data-sitekey="6LdqKs0rAAAAANt8adjEqPvWtS8Ceewm5TpEhVg3" data-callback="onRecaptchaSuccess"></div>
+      </div>
+
+      <div id="form-container" style="display:none; position:relative; height:650px; max-width:600px; margin:auto;">
+        <iframe 
+          src="https://app.formbricks.com/s/cmfotg9hc4gtoxs01bayu9vhr?embed=true" 
+          frameborder="0" 
+          style="position:absolute; left:0; top:0; width:100%; height:100%; border:none;">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
 
 <script>
   function onRecaptchaSuccess() {
+    console.log('reCAPTCHA verified');
     document.getElementById('recaptcha-container').style.display = 'none';
-    document.getElementById('form-container').style.display = 'block';
+    const formContainer = document.getElementById('form-container');
+    formContainer.style.opacity = 0;
+    formContainer.style.display = 'block';
+    setTimeout(() => {
+      formContainer.style.transition = 'opacity 0.5s ease';
+      formContainer.style.opacity = 1;
+    }, 10);
   }
 </script>
-    </div>
+
          
     </section>
 
