@@ -23,7 +23,8 @@
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
   <!-- EmailJS SDK -->
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+ <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 </head>
 <body>
   <!-- Navigation -->
@@ -294,7 +295,12 @@
 
   <!-- EmailJS init & handler -->
   <script>
-    emailjs.init("stratusselyn.advisory@gmail.com");
+    (function() {
+  emailjs.init({
+    publicKey: "myvffvsT74dHk0uD6"
+  });
+})();
+
     document.getElementById("contactForm").addEventListener("submit", function (e) {
       e.preventDefault();
       emailjs.sendForm("service_fwobait", "template_191shw6", this)
