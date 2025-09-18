@@ -294,16 +294,17 @@
                 
              <!-- Load reCAPTCHA v2 -->
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
- <div id="recaptcha-container" style="max-width:600px; margin: auto; text-align: center; padding: 20px;">
+
+<div id="recaptcha-container" style="max-width:600px; margin:auto; text-align:center; padding:20px;">
   <p>Please verify that you are not a robot to access the contact form:</p>
-                   <div class="g-recaptcha" data-sitekey="6LdqKs0rAAAAANt8adjEqPvWtS8Ceewm5TpEhVg3" data-callback="onRecaptchaSuccess"></div>
+  <div class="g-recaptcha" data-sitekey="6LdqKs0rAAAAANt8adjEqPvWtS8Ceewm5TpEhVg3" data-callback="onRecaptchaSuccess"></div>
 </div>
 
-<div id="form-container" style="display: none; height: 650px; max-width:600px; margin:auto;">
-  <iframe
-    src="https://app.formbricks.com/s/cmfotg9hc4gtoxs01bayu9vhr?embed=true"
-    frameborder="0"
-    style="position: absolute; left:0; top:0; width:100%; height:100%; border:0;">
+<div id="form-container" style="display:none; position: relative; height: 650px; max-width: 600px; margin: auto;">
+  <iframe 
+    src="https://app.formbricks.com/s/cmfotg9hc4gtoxs01bayu9vhr?embed=true" 
+    frameborder="0" 
+    style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; border: none;">
   </iframe>
 </div>
 
@@ -313,9 +314,6 @@
     document.getElementById('form-container').style.display = 'block';
   }
 </script>
-
-</div>
-
                
     </section>
 
