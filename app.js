@@ -344,6 +344,12 @@ function smoothScrollPolyfill() {
         document.head.appendChild(script);
     }
 }
+//Recaptcha success
+function onRecaptchaSuccess() {
+  document.getElementById('recaptcha-container').style.display = 'none';
+  const formContainer = document.getElementById('form-container');
+  formContainer.classList.add('visible');
+}
 
 // Initialize smooth scroll polyfill
 smoothScrollPolyfill();
