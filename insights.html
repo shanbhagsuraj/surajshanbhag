@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Strategic Insights | Suraj Shanbhag - Corporate Finance Advisor</title>
+  <meta name="description" content="Strategic insights on corporate finance, investment banking, and personal finance from Suraj Shanbhag" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav-content">
+        <div class="nav-brand">
+          <img src="logo.png" class="nav-logo" />
+          <span class="nav-name">Suraj Shanbhag</span>
+        </div>
+        <div class="nav-menu" id="navMenu">
+          <a href="index.html#about" class="nav-link">About</a>
+          <a href="index.html#services" class="nav-link">Services</a>
+          <a href="index.html#experience" class="nav-link">Experience</a>
+          <a href="insights.html" class="nav-link active">Insights</a>
+          <a href="consultation.html" class="nav-link">Schedule Consultation</a>
+          <a href="index.html#contact" class="nav-link">Contact</a>
+        </div>
+        <button class="nav-toggle" id="navToggle">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" style="min-height: 60vh; padding-top: 120px;">
+    <div class="container">
+      <div class="hero-content" style="text-align: center; max-width: 800px; margin: 0 auto;">
+        <h1 class="hero-title" style="font-size: 2.5rem; margin-bottom: 1rem;">Strategic Insights</h1>
+        <p class="hero-subtitle" style="font-size: 1.2rem; margin-bottom: 2rem;">
+          Deep dives into corporate finance, market analysis, and strategic decision-making from over a decade of investment banking experience.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="https://stratusselynadvisory.substack.com/subscribe" target="_blank" class="btn btn--primary btn--lg">
+            Subscribe to Newsletter
+          </a>
+          <a href="consultation.html" class="btn btn--outline btn--lg">
+            Schedule Consultation
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Loading Message -->
+  <section class="services" style="background: var(--color-background);">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Latest Articles</h2>
+        <p class="section-subtitle">Recent insights and analysis from Strategic Insights</p>
+      </div>
+      
+      <!-- Loading State -->
+      <div id="loading-message" style="text-align: center; padding: 2rem;">
+        <p style="color: var(--color-text-secondary); font-size: 1.1rem;">Loading latest articles...</p>
+      </div>
+
+      <!-- Featured Article Container -->
+      <div id="featured-article" style="margin-bottom: 3rem; display: none;">
+        <!-- Featured article will be populated by JavaScript -->
+      </div>
+
+      <!-- Article Grid Container -->
+      <div id="articles-grid" class="services-grid" style="display: none;">
+        <!-- Articles will be populated by JavaScript -->
+      </div>
+
+      <!-- Error State -->
+      <div id="error-message" style="display: none; text-align: center; padding: 2rem;">
+        <div class="service-card" style="max-width: 600px; margin: 0 auto;">
+          <h3 style="color: var(--color-text); margin-bottom: 1rem;">Unable to Load Articles</h3>
+          <p style="color: var(--color-text-secondary); margin-bottom: 1.5rem;">
+            We're having trouble loading the latest articles. Please visit our Substack directly.
+          </p>
+          <a href="https://stratusselynadvisory.substack.com/" target="_blank" class="btn btn--primary">
+            Visit Substack →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Subscription -->
+  <section class="contact" style="background: var(--color-surface);">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Stay Updated</h2>
+        <p class="section-subtitle">Get strategic insights delivered to your inbox</p>
+      </div>
+      <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+        <p style="font-size: 1.1rem; margin-bottom: 2rem; color: var(--color-text-secondary);">
+          Join hundreds of finance professionals and business leaders who read Strategic Insights for actionable analysis on markets, deals, and wealth building.
+        </p>
+        <a href="https://stratusselynadvisory.substack.com/subscribe" target="_blank" class="btn btn--primary btn--lg">
+          Subscribe to Strategic Insights →
+        </a>
+        <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--color-text-secondary);">
+          Free newsletter • No spam • Unsubscribe anytime
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info">
+          <h4>Suraj Shanbhag</h4>
+          <p>Corporate Finance Advisor | Personal Finance Advisor | Strategic Consultant</p>
+          <p>Bengaluru, Karnataka, India</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://www.linkedin.com/in/surajshanbhag" target="_blank">LinkedIn</a>
+          <a href="https://stratusselynadvisory.substack.com/" target="_blank">Substack</a>
+          <a href="https://www.youtube.com/channel/UCZOQppMPAc-n_jiLHi7xBJw" target="_blank">YouTube</a>
+          <a href="mailto:stratusselyn.advisory@gmail.com">Email</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Suraj Shanbhag. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- RSS Feed JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      loadSubstackFeed();
+    });
+
+    async function loadSubstackFeed() {
+      try {
+        // Substack RSS feed URL
+        const rssUrl = 'https://stratusselynadvisory.substack.com/feed';
+        
+        // Use RSS2JSON service to convert RSS to JSON (handles CORS)
+        const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&api_key=your_api_key_here&count=10`;
+        
+        const response = await fetch(proxyUrl);
+        const data = await response.json();
+
+        if (data.status === 'ok' && data.items && data.items.length > 0) {
+          displayArticles(data.items);
+        } else {
+          throw new Error('No articles found');
+        }
+      } catch (error) {
+        console.error('Error loading RSS feed:', error);
+        showErrorState();
+      }
+    }
+
+    function displayArticles(articles) {
+      const loadingEl = document.getElementById('loading-message');
+      const featuredEl = document.getElementById('featured-article');
+      const gridEl = document.getElementById('articles-grid');
+
+      // Hide loading message
+      loadingEl.style.display = 'none';
+
+      if (articles.length === 0) {
+        showErrorState();
+        return;
+      }
+
+      // Display featured article (most recent)
+      const featuredArticle = articles[0];
+      featuredEl.innerHTML = `
+        <div class="service-card" style="max-width: 100%; padding: 2rem;">
+          <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem;">
+            <span style="background: var(--color-primary); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.875rem; font-weight: 500;">Featured</span>
+            <span style="color: var(--color-text-secondary); font-size: 0.875rem;">${formatDate(featuredArticle.pubDate)}</span>
+          </div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--color-text);">
+            ${featuredArticle.title}
+          </h3>
+          <p style="color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">
+            ${stripHtml(featuredArticle.description).substring(0, 300)}...
+          </p>
+          <a href="${featuredArticle.link}" target="_blank" class="btn btn--primary">
+            Read Full Article →
+          </a>
+        </div>
+      `;
+      featuredEl.style.display = 'block';
+
+      // Display other articles in grid (skip the featured one)
+      const otherArticles = articles.slice(1, 7); // Show up to 6 additional articles
+      gridEl.innerHTML = otherArticles.map(article => `
+        <div class="service-card">
+          <div style="margin-bottom: 1rem;">
+            <span style="color: var(--color-text-secondary); font-size: 0.875rem;">${formatDate(article.pubDate)}</span>
+          </div>
+          <h3 class="service-title">${article.title}</h3>
+          <p class="service-description">
+            ${stripHtml(article.description).substring(0, 150)}...
+          </p>
+          <a href="${article.link}" target="_blank" class="btn btn--outline">
+            Read on Substack →
+          </a>
+        </div>
+      `).join('');
+      gridEl.style.display = 'grid';
+    }
+
+    function showErrorState() {
+      document.getElementById('loading-message').style.display = 'none';
+      document.getElementById('error-message').style.display = 'block';
+    }
+
+    function formatDate(dateString) {
+      const date = new Date(dateString);
+      return date.toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+      });
+    }
+
+    function stripHtml(html) {
+      const temp = document.createElement('div');
+      temp.innerHTML = html;
+      return temp.textContent || temp.innerText || '';
+    }
+
+    // Alternative RSS fetch method (fallback)
+    async function loadSubstackFeedAlternative() {
+      try {
+        // Alternative: Use a different CORS proxy
+        const rssUrl = 'https://stratusselynadvisory.substack.com/feed';
+        const proxyUrl = `https://cors-anywhere.herokuapp.com/${rssUrl}`;
+        
+        const response = await fetch(proxyUrl);
+        const xmlText = await response.text();
+        
+        // Parse XML
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+        
+        const items = xmlDoc.querySelectorAll('item');
+        const articles = Array.from(items).slice(0, 10).map(item => ({
+          title: item.querySelector('title').textContent,
+          link: item.querySelector('link').textContent,
+          description: item.querySelector('description').textContent,
+          pubDate: item.querySelector('pubDate').textContent
+        }));
+
+        if (articles.length > 0) {
+          displayArticles(articles);
+        } else {
+          throw new Error('No articles found');
+        }
+      } catch (error) {
+        console.error('Alternative RSS fetch failed:', error);
+        showErrorState();
+      }
+    }
+  </script>
+
+  <script src="app.js"></script>
+</body>
+</html>
