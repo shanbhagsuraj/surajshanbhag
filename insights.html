@@ -54,7 +54,7 @@
     </div>
   </section>
 
-  <!-- Loading Message -->
+  <!-- Latest Articles Section -->
   <section class="services" style="background: var(--color-background);">
     <div class="container">
       <div class="section-header">
@@ -77,16 +77,65 @@
         <!-- Articles will be populated by JavaScript -->
       </div>
 
-      <!-- Error State -->
-      <div id="error-message" style="display: none; text-align: center; padding: 2rem;">
-        <div class="service-card" style="max-width: 600px; margin: 0 auto;">
-          <h3 style="color: var(--color-text); margin-bottom: 1rem;">Unable to Load Articles</h3>
-          <p style="color: var(--color-text-secondary); margin-bottom: 1.5rem;">
-            We're having trouble loading the latest articles. Please visit our Substack directly.
-          </p>
-          <a href="https://stratusselynadvisory.substack.com/" target="_blank" class="btn btn--primary">
-            Visit Substack →
-          </a>
+      <!-- Fallback Content (when RSS fails) -->
+      <div id="fallback-content" style="display: none;">
+        <div style="margin-bottom: 3rem;">
+          <div class="service-card" style="max-width: 100%; padding: 2rem;">
+            <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem;">
+              <span style="background: var(--color-primary); color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.875rem; font-weight: 500;">Featured</span>
+              <span style="color: var(--color-text-secondary); font-size: 0.875rem;">Latest Post</span>
+            </div>
+            <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--color-text);">
+              Welcome to Strategic Insights: Bridging Finance and Strategy
+            </h3>
+            <p style="color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">
+              After a decade in investment banking at Deutsche Bank, executing $13.1B+ in transactions across global markets, I'm launching this newsletter to share strategic insights on corporate finance, market dynamics, and personal wealth building. Get actionable analysis delivered directly to your inbox.
+            </p>
+            <a href="https://stratusselynadvisory.substack.com/" target="_blank" class="btn btn--primary">
+              Read Full Article →
+            </a>
+          </div>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div style="margin-bottom: 1rem;">
+              <span style="color: var(--color-text-secondary); font-size: 0.875rem;">Market Analysis</span>
+            </div>
+            <h3 class="service-title">The State of M&A Markets in 2025</h3>
+            <p class="service-description">
+              An analysis of current M&A trends, valuation multiples, and what dealmakers should expect in the coming quarters based on recent market activity and economic indicators.
+            </p>
+            <a href="https://stratusselynadvisory.substack.com/" target="_blank" class="btn btn--outline">
+              Read on Substack →
+            </a>
+          </div>
+
+          <div class="service-card">
+            <div style="margin-bottom: 1rem;">
+              <span style="color: var(--color-text-secondary); font-size: 0.875rem;">Personal Finance</span>
+            </div>
+            <h3 class="service-title">Building Wealth: Lessons from Financial Independence</h3>
+            <p class="service-description">
+              Key strategies and principles that helped me transition from zero to millionaire status through disciplined investing and strategic financial planning over the past decade.
+            </p>
+            <a href="https://stratusselynadvisory.substack.com/" target="_blank" class="btn btn--outline">
+              Read on Substack →
+            </a>
+          </div>
+
+          <div class="service-card">
+            <div style="margin-bottom: 1rem;">
+              <span style="color: var(--color-text-secondary); font-size: 0.875rem;">Strategy</span>
+            </div>
+            <h3 class="service-title">Corporate Strategy in Uncertain Times</h3>
+            <p class="service-description">
+              How companies can navigate market volatility, optimize capital allocation, and position for growth during periods of economic uncertainty and changing market dynamics.
+            </p>
+            <a href="https://stratusselynadvisory.substack.com/" target="_blank" class="btn btn--outline">
+              Read on Substack →
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -135,31 +184,85 @@
     </div>
   </footer>
 
-  <!-- RSS Feed JavaScript -->
+  <!-- Improved RSS Feed JavaScript -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       loadSubstackFeed();
     });
 
     async function loadSubstackFeed() {
+      const loadingEl = document.getElementById('loading-message');
+      const featuredEl = document.getElementById('featured-article');
+      const gridEl = document.getElementById('articles-grid');
+      const fallbackEl = document.getElementById('fallback-content');
+
       try {
-        // Substack RSS feed URL
+        // Method 1: Try RSS2JSON without API key (limited requests)
         const rssUrl = 'https://stratusselynadvisory.substack.com/feed';
+        const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=6`;
         
-        // Use RSS2JSON service to convert RSS to JSON (handles CORS)
-        const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&api_key=your_api_key_here&count=10`;
-        
+        console.log('Attempting to fetch RSS feed...');
         const response = await fetch(proxyUrl);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        
         const data = await response.json();
+        console.log('RSS Response:', data);
 
         if (data.status === 'ok' && data.items && data.items.length > 0) {
           displayArticles(data.items);
+          return;
         } else {
-          throw new Error('No articles found');
+          throw new Error(`RSS API returned: ${data.status || 'unknown error'}`);
         }
+        
       } catch (error) {
-        console.error('Error loading RSS feed:', error);
-        showErrorState();
+        console.error('RSS Method 1 failed:', error);
+        
+        try {
+          // Method 2: Try alternative RSS service
+          await loadAlternativeRSS();
+        } catch (error2) {
+          console.error('RSS Method 2 failed:', error2);
+          
+          // Method 3: Show static fallback content
+          console.log('Showing fallback content');
+          loadingEl.style.display = 'none';
+          fallbackEl.style.display = 'block';
+        }
+      }
+    }
+
+    async function loadAlternativeRSS() {
+      // Alternative method using a different free RSS proxy
+      const rssUrl = 'https://stratusselynadvisory.substack.com/feed';
+      const altProxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(rssUrl)}`;
+      
+      const response = await fetch(altProxyUrl);
+      const data = await response.json();
+      
+      if (data.contents) {
+        // Parse XML manually
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
+        
+        const items = xmlDoc.querySelectorAll('item');
+        if (items.length === 0) {
+          throw new Error('No articles found in RSS feed');
+        }
+        
+        const articles = Array.from(items).slice(0, 6).map(item => ({
+          title: item.querySelector('title')?.textContent || 'Untitled',
+          link: item.querySelector('link')?.textContent || '#',
+          description: item.querySelector('description')?.textContent || '',
+          pubDate: item.querySelector('pubDate')?.textContent || new Date().toISOString()
+        }));
+
+        displayArticles(articles);
+      } else {
+        throw new Error('No content received from alternative RSS service');
       }
     }
 
@@ -168,11 +271,10 @@
       const featuredEl = document.getElementById('featured-article');
       const gridEl = document.getElementById('articles-grid');
 
-      // Hide loading message
       loadingEl.style.display = 'none';
 
       if (articles.length === 0) {
-        showErrorState();
+        document.getElementById('fallback-content').style.display = 'block';
         return;
       }
 
@@ -197,76 +299,45 @@
       `;
       featuredEl.style.display = 'block';
 
-      // Display other articles in grid (skip the featured one)
-      const otherArticles = articles.slice(1, 7); // Show up to 6 additional articles
-      gridEl.innerHTML = otherArticles.map(article => `
-        <div class="service-card">
-          <div style="margin-bottom: 1rem;">
-            <span style="color: var(--color-text-secondary); font-size: 0.875rem;">${formatDate(article.pubDate)}</span>
+      // Display other articles in grid
+      const otherArticles = articles.slice(1);
+      if (otherArticles.length > 0) {
+        gridEl.innerHTML = otherArticles.map(article => `
+          <div class="service-card">
+            <div style="margin-bottom: 1rem;">
+              <span style="color: var(--color-text-secondary); font-size: 0.875rem;">${formatDate(article.pubDate)}</span>
+            </div>
+            <h3 class="service-title">${article.title}</h3>
+            <p class="service-description">
+              ${stripHtml(article.description).substring(0, 150)}...
+            </p>
+            <a href="${article.link}" target="_blank" class="btn btn--outline">
+              Read on Substack →
+            </a>
           </div>
-          <h3 class="service-title">${article.title}</h3>
-          <p class="service-description">
-            ${stripHtml(article.description).substring(0, 150)}...
-          </p>
-          <a href="${article.link}" target="_blank" class="btn btn--outline">
-            Read on Substack →
-          </a>
-        </div>
-      `).join('');
-      gridEl.style.display = 'grid';
-    }
-
-    function showErrorState() {
-      document.getElementById('loading-message').style.display = 'none';
-      document.getElementById('error-message').style.display = 'block';
+        `).join('');
+        gridEl.style.display = 'grid';
+      }
     }
 
     function formatDate(dateString) {
-      const date = new Date(dateString);
-      return date.toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
-      });
+      try {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-US', { 
+          year: 'numeric', 
+          month: 'long', 
+          day: 'numeric' 
+        });
+      } catch {
+        return 'Recent';
+      }
     }
 
     function stripHtml(html) {
+      if (!html) return '';
       const temp = document.createElement('div');
       temp.innerHTML = html;
       return temp.textContent || temp.innerText || '';
-    }
-
-    // Alternative RSS fetch method (fallback)
-    async function loadSubstackFeedAlternative() {
-      try {
-        // Alternative: Use a different CORS proxy
-        const rssUrl = 'https://stratusselynadvisory.substack.com/feed';
-        const proxyUrl = `https://cors-anywhere.herokuapp.com/${rssUrl}`;
-        
-        const response = await fetch(proxyUrl);
-        const xmlText = await response.text();
-        
-        // Parse XML
-        const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
-        
-        const items = xmlDoc.querySelectorAll('item');
-        const articles = Array.from(items).slice(0, 10).map(item => ({
-          title: item.querySelector('title').textContent,
-          link: item.querySelector('link').textContent,
-          description: item.querySelector('description').textContent,
-          pubDate: item.querySelector('pubDate').textContent
-        }));
-
-        if (articles.length > 0) {
-          displayArticles(articles);
-        } else {
-          throw new Error('No articles found');
-        }
-      } catch (error) {
-        console.error('Alternative RSS fetch failed:', error);
-        showErrorState();
-      }
     }
   </script>
 
